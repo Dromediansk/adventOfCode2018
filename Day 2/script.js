@@ -286,4 +286,28 @@ console.log(twice * thrice);
 
 //PART 2
 
+let commonChar = '';
+let position = -1;
 
+for (let i = 0; i < arrayBoxes.length; i++) {
+
+  for(let j = i+1; j < arrayBoxes.length; j++) {
+    for (let l = 0; l < arrayBoxes[0].length; l++) {
+
+      if(arrayBoxes[i][l] !== arrayBoxes[j][l]){
+        if(position === -1){
+          position = l;
+        } else {
+          position = -1;
+          break;
+        }
+      }
+
+    }
+    if(position !== -1){
+      commonChar = arrayBoxes[i].substring(0, position) + arrayBoxes[i].substring(position+1, arrayBoxes[i].length - 1);
+    }
+  }
+}
+
+console.log(commonChar);
